@@ -285,7 +285,7 @@ static const struct freq_tbl  ftbl_gpu_cc_gx_gfx3d_clk_src_sdm845_v2[] = {
 	F(675000000, P_CRC_DIV,  1, 0, 0),
 	F(710000000, P_CRC_DIV,  1, 0, 0),
 	F(767000000, P_CRC_DIV,  1, 0, 0),
-	F(833000000, P_CRC_DIV,  1, 0, 0),
+	F(825000000, P_CRC_DIV,  1, 0, 0),
 	{ }
 };
 
@@ -318,16 +318,16 @@ static struct clk_rcg2 gpu_cc_gx_gfx3d_clk_src = {
 		.flags = CLK_SET_RATE_PARENT,
 		.ops =  &clk_rcg2_ops,
 		VDD_GX_FMAX_MAP8(
-			MIN, 134000000, 
-			LOWER, 198000000, 
-			LOW, 266000000, 
-			LOW_L1, 325000000, 
-			NOMINAL, 415000000,  
-			NOMINAL_L1, 475000000, 
-			HIGH, 535000000, 
-			HIGH_1, 543000000, 
-			HIGH_2, 539000000, 
-			HIGH_L1, 61200000),
+			MIN, 132000000, //147
+			LOWER, 195000000, //210
+			LOW, 265000000, //280
+			LOW_L1, 323000000, //338
+			NOMINAL, 410000000,  //425
+			NOMINAL_L1, 472000000, //487
+			HIGH, 533000000, //548
+			HIGH_1, 533000000, //548
+			HIGH_2, 533000000, //548
+			HIGH_L1, 61000000),// 600
 	},
 };
 
@@ -642,12 +642,12 @@ static void gpu_cc_gfx_sdm845_fixup_sdm845v2(void)
 	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_NOMINAL] =
 		520000000;
 	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_NOMINAL_L1] =
-		586000000;
-	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_HIGH] = 645000000;
-	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_HIGH_1] = 715000000;
-	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_HIGH_2] = 769000000;
+		596000000;
+	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_HIGH] = 675000000;
+	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_HIGH_1] = 710000000;
+	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_HIGH_2] = 767000000;
 	gpu_cc_gx_gfx3d_clk_src.clkr.hw.init->rate_max[VDD_GX_HIGH_L1] =
-		829000000;	;
+		825000000;	;
 }
 
 static void gpu_cc_gfx_sdm845_fixup_sdm670(void)
